@@ -1,0 +1,16 @@
+2026-08-22T01:50:50.756-04:00  INFO 41676 --- [api-gateway] [main] c.t.api_gateway.ApiGatewayApplication    : Starting ApiGatewayApplication using Java 17.0.12 with PID 41676 (C:\Development\TradingApp\api-gateway\target\classes started by mrcsh in C:\Development\TradingApp\api-gateway)
+2026-08-22T01:50:50.759-04:00  INFO 41676 --- [api-gateway] [main] c.t.api_gateway.ApiGatewayApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T01:50:51.295-04:00  INFO 41676 --- [api-gateway] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T01:50:51.298-04:00  INFO 41676 --- [api-gateway] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-22T01:50:51.320-04:00  INFO 41676 --- [api-gateway] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2026-08-22T01:50:51.477-04:00  INFO 41676 --- [api-gateway] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=210d9f52-5c3f-3711-9826-0e5c6bbac3d2
+2026-08-22T01:50:51.736-04:00  INFO 41676 --- [api-gateway] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-08-22T01:50:51.747-04:00  INFO 41676 --- [api-gateway] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T01:50:51.748-04:00  INFO 41676 --- [api-gateway] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-08-22T01:50:51.798-04:00  INFO 41676 --- [api-gateway] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1005 ms
+2026-08-22T01:50:52.935-04:00  INFO 41676 --- [api-gateway] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-22T01:50:52.970-04:00  INFO 41676 --- [api-gateway] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-08-22T01:50:53.096-04:00  INFO 41676 --- [api-gateway] [main] c.t.api_gateway.ApiGatewayApplication    : Started ApiGatewayApplication in 2.835 seconds (process running for 3.222)
+2026-08-22T01:51:32.375-04:00  INFO 41676 --- [api-gateway] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-22T01:51:32.375-04:00  INFO 41676 --- [api-gateway] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-22T01:51:32.376-04:00  INFO 41676 --- [api-gateway] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
