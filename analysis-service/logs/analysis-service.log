@@ -1,0 +1,36 @@
+2026-08-22T03:27:32.677-04:00  WARN 42052 --- [analysis-service] [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/mrcsh/.m2/repository/org/json/json/20251224/json-20251224.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/mrcsh/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-08-22T03:27:32.695-04:00  INFO 42052 --- [analysis-service] [main] c.t.a.AnalysisServiceApplicationTests    : Starting AnalysisServiceApplicationTests using Java 17.0.12 with PID 42052 (started by mrcsh in C:\Development\TradingApp\analysis-service)
+2026-08-22T03:27:32.696-04:00  INFO 42052 --- [analysis-service] [main] c.t.a.AnalysisServiceApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T03:27:32.716-04:00  INFO 42052 --- [analysis-service] [main] o.s.v.c.e.LeaseAwareVaultPropertySource  : Vault location [secret/analysis-service] not resolvable: Not found
+2026-08-22T03:27:32.717-04:00  INFO 42052 --- [analysis-service] [main] o.s.v.c.e.LeaseAwareVaultPropertySource  : Vault location [secret/application] not resolvable: Not found
+2026-08-22T03:27:33.215-04:00  INFO 42052 --- [analysis-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fdd2e71c-8076-33ee-9beb-b0794bb6967b
+2026-08-22T03:27:33.336-04:00  WARN 42052 --- [analysis-service] [main] o.s.core.annotation.MergedAnnotation     : Failed to introspect meta-annotation @AutoConfiguration on class org.springframework.ai.autoconfigure.ollama.OllamaAutoConfiguration: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.web.client.RestClientAutoConfiguration not present
+2026-08-22T03:27:34.351-04:00  INFO 42052 --- [analysis-service] [main] c.t.a.AnalysisServiceApplicationTests    : Started AnalysisServiceApplicationTests in 3.028 seconds (process running for 4.045)
+2026-08-22T03:27:34.954-04:00  INFO 42052 --- [analysis-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.trading.analysis_service.controller.StrategyControllerTest]: StrategyControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-22T03:27:34.963-04:00  INFO 42052 --- [analysis-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.trading.analysis_service.AnalysisServiceApplication for test class com.trading.analysis_service.controller.StrategyControllerTest
+2026-08-22T03:27:34.964-04:00  INFO 42052 --- [analysis-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.trading.analysis_service.controller.StrategyControllerTest]: StrategyControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-22T03:27:34.965-04:00  INFO 42052 --- [analysis-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.trading.analysis_service.AnalysisServiceApplication for test class com.trading.analysis_service.controller.StrategyControllerTest
+2026-08-22T03:27:35.151-04:00  WARN 42052 --- [analysis-service] [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/mrcsh/.m2/repository/org/json/json/20251224/json-20251224.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/mrcsh/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-08-22T03:27:35.157-04:00  INFO 42052 --- [analysis-service] [main] c.t.a.controller.StrategyControllerTest  : Starting StrategyControllerTest using Java 17.0.12 with PID 42052 (started by mrcsh in C:\Development\TradingApp\analysis-service)
+2026-08-22T03:27:35.157-04:00  INFO 42052 --- [analysis-service] [main] c.t.a.controller.StrategyControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T03:27:35.159-04:00  INFO 42052 --- [analysis-service] [main] o.s.v.c.e.LeaseAwareVaultPropertySource  : Vault location [secret/analysis-service] not resolvable: Not found
+2026-08-22T03:27:35.160-04:00  INFO 42052 --- [analysis-service] [main] o.s.v.c.e.LeaseAwareVaultPropertySource  : Vault location [secret/application] not resolvable: Not found
+2026-08-22T03:27:35.299-04:00  INFO 42052 --- [analysis-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fdd2e71c-8076-33ee-9beb-b0794bb6967b
+2026-08-22T03:27:35.761-04:00  WARN 42052 --- [analysis-service] [main] o.s.core.annotation.MergedAnnotation     : Failed to introspect meta-annotation @AutoConfiguration on class org.springframework.ai.autoconfigure.ollama.OllamaAutoConfiguration: java.lang.TypeNotPresentException: Type org.springframework.boot.autoconfigure.web.client.RestClientAutoConfiguration not present
+2026-08-22T03:27:36.274-04:00  INFO 42052 --- [analysis-service] [main] c.t.a.controller.StrategyControllerTest  : Started StrategyControllerTest in 1.302 seconds (process running for 5.969)
