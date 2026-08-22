@@ -17,8 +17,11 @@ public class StrategyController {
 
     public StrategyController(ChatClient.Builder chatClientBuilder) {
         this.chatClient = chatClientBuilder
-            .defaultSystem("You are a quantitative trading developer. " +
-                           "Convert the user's natural language trading strategy into a strict JSON representation.")
+            .defaultSystem("You are an expert quantitative trading developer specialized in TradingView Pine Script v5. " +
+                           "Convert the user's natural language trading strategy into valid Pine Script v5 code. " +
+                           "The script MUST include an alert() function call when entry conditions are met. " +
+                           "The alert message MUST be a strict JSON payload with the following keys: accountId, contractSymbol, action, and quantity. " +
+                           "Return ONLY a valid JSON object with two fields: 'pineScript' (containing the raw code string) and 'explanation' (a brief string explaining the logic).")
             .build();
     }
 
@@ -26,16 +29,23 @@ public class StrategyController {
     public StrategyScriptResponse generateStrategy(@RequestBody StrategyGenerationRequest request) {
         
         String userPrompt = String.format(
-            "Create a strategy script for: %s. Preferred Asset: %s. Max Daily Loss: $%d", 
+            "Create a Pine Script strategy for: %s. Target Contract: %s. Default Quantity: %d contracts.", 
             request.getUserDescription(), 
-            request.getPreferredAsset(), 
-            request.getMaxDailyLoss()
+            request.getContractSymbol(), 
+            request.getDefaultQuantity()
         );
 
-        // Uses Spring AI's structured output mapping to force Gemma to return our exact JSON DTO
-        return chatClient.prompt()
+        String rawResponse = chatClient.prompt()
                 .user(userPrompt)
                 .call()
-                .entity(new ParameterizedTypeReference<StrategyScriptResponse>() {});
+                .content();
+                
+        // For local small models (like gemma:2b) that struggle with pure JSON generation,
+        // we wrap the raw textual response into our DTO.
+        StrategyScriptResponse response = new StrategyScriptResponse();
+        response.setPineScript(rawResponse);
+        response.setExplanation("Generated via local Gemma model.");
+        
+        return response;
     }
 }

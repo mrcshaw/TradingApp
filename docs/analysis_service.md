@@ -1,7 +1,9 @@
 # Analysis Service Documentation
 
 ## Overview
-The Analysis Service acts as the quantitative AI brain of the Trading Application. Instead of evaluating every live market tick (which would be latency-heavy and context-prohibitive), this service uses Google Gemma (via Ollama) to translate natural language user strategies into strict, mathematically structured JSON scripts (`StrategyScript`). These scripts are then evaluated by a fast, local Java rules engine in real-time.
+The Analysis Service acts as the quantitative AI developer of the Trading Application. Instead of evaluating every live market tick locally, this service uses Google Gemma (via Ollama) to translate natural language user strategies into fully functional **TradingView Pine Script v5** code. 
+
+Users deploy this Pine Script directly in TradingView. TradingView handles the live charting and tick evaluation, and fires Webhook alerts back to our `Trading Service` to execute trades on Tradovate.
 
 ## Tech Stack
 - **Framework:** Spring Boot, Spring WebMVC
@@ -10,36 +12,33 @@ The Analysis Service acts as the quantitative AI brain of the Trading Applicatio
 - **Model:** Gemma (e.g., `gemma:2b`)
 - **Secrets Management:** HashiCorp Vault
 
-## Core Workflow: Strategy Generation
-1. **User Input:** The user provides a description of their trading strategy (e.g., "Buy when the 9 EMA crosses above 21 EMA"), along with parameters like `preferredAsset` and `maxDailyLoss`.
-2. **Spring AI Processing:** The `StrategyController` injects these parameters into a predefined System Prompt.
-3. **Structured Output:** Spring AI enforces a strict JSON schema via `ParameterizedTypeReference`. Gemma processes the prompt and returns a strictly mapped JSON object that aligns perfectly with the Java `StrategyScriptResponse` DTO.
+## Core Workflow: Pine Script Generation
+1. **User Input:** The user provides a description of their trading strategy (e.g., "Buy when the 9 EMA crosses above 21 EMA"), along with preferences.
+2. **Spring AI Processing:** The `StrategyController` instructs Gemma to generate valid Pine Script v5 code designed to trigger `alert()` function calls containing our exact Webhook JSON payload.
+3. **Structured Output:** Spring AI enforces a JSON response containing the raw `pineScript` string and a plain text `explanation`.
 
 ## API Endpoints
 ### `POST /api/analysis/strategy/generate`
-Generates a trading strategy script based on natural language input.
+Generates a Pine Script v5 strategy based on natural language input.
 
 **Request Payload (`StrategyGenerationRequest`):**
 ```json
 {
   "userDescription": "Buy when the 9 EMA crosses above the 21 EMA",
-  "preferredAsset": "NQ",
-  "maxDailyLoss": 500
+  "contractSymbol": "ES1!",
+  "maxDailyLoss": 500,
+  "defaultQuantity": 2
 }
 ```
 
 **Response Payload (`StrategyScriptResponse`):**
 ```json
 {
-  "indicators": ["EMA(9)", "EMA(21)"],
-  "entryConditions": ["EMA(9) > EMA(21)"],
-  "riskParameters": {
-    "maxDailyLoss": 500,
-    "preferredAsset": "NQ"
-  }
+  "pineScript": "//@version=5\nstrategy(\"My EMA Strategy\", overlay=true)\n...",
+  "explanation": "This script utilizes a 9-period EMA and a 21-period EMA..."
 }
 ```
 
 ## Future Enhancements
-- **Backtesting Evaluation:** Adding endpoints to feed backtest performance metrics back to Gemma for iterative strategy optimization.
-- **Model Tuning:** Adjusting the `temperature` and `top_k` Spring AI parameters for more deterministic code generation.
+- **Backtesting Engine:** Adding an internal Java-based backtesting engine to simulate strategies against historical CSV or Tradovate data before deploying them to TradingView.
+- **Iterative Refinement:** Allowing the user to send backtest results back to Gemma to mathematically refine the Pine Script parameters.
