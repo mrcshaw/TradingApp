@@ -1,5 +1,7 @@
 package com.trading.trading_service.controller;
 
+import com.trading.trading_service.entity.TradeRecord;
+import com.trading.trading_service.service.TradeRecordService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +14,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/webhooks")
 public class WebhookController {
+
+    private final TradeRecordService tradeRecordService;
+
+    public WebhookController(TradeRecordService tradeRecordService) {
+        this.tradeRecordService = tradeRecordService;
+    }
 
     /**
      * Accepts plain text webhook payloads from TradingView.
@@ -27,12 +35,11 @@ public class WebhookController {
             return ResponseEntity.status(401).body(Map.of("error", "Unauthorized webhook key"));
         }
 
-        // Process trade (mock for now)
-        System.out.println("Valid Webhook Received! Executing trade:");
-        System.out.println("Instrument: " + parsedData.get("instrument"));
-        System.out.println("Action: " + parsedData.get("action"));
-        System.out.println("Quantity: " + parsedData.get("qty"));
-        System.out.println("Account: " + parsedData.get("account"));
+        // Persistence-First: Immediately save to DB and acknowledge receipt.
+        // The background async processor will pick this up for Tradovate execution.
+        TradeRecord savedRecord = tradeRecordService.saveReceivedWebhook(parsedData, payload);
+        
+        System.out.println("Valid Webhook Received & Saved (ID: " + savedRecord.getId() + ")");
         
         return ResponseEntity.ok(parsedData);
     }
