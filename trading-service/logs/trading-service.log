@@ -1,0 +1,12 @@
+2026-08-22T06:46:23.112-04:00  INFO 29888 --- [trading-service] [main] c.t.t.TradingServiceApplication          : Starting TradingServiceApplication using Java 17.0.12 with PID 29888 (C:\Development\TradingApp\trading-service\target\classes started by mrcsh in C:\Development\TradingApp\trading-service)
+2026-08-22T06:46:23.113-04:00  INFO 29888 --- [trading-service] [main] c.t.t.TradingServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T06:46:23.651-04:00  INFO 29888 --- [trading-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-08-22T06:46:23.662-04:00  INFO 29888 --- [trading-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T06:46:23.663-04:00  INFO 29888 --- [trading-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-08-22T06:46:23.702-04:00  INFO 29888 --- [trading-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-22T06:46:23.703-04:00  INFO 29888 --- [trading-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
+2026-08-22T06:46:23.893-04:00  INFO 29888 --- [trading-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path ''
+2026-08-22T06:46:23.898-04:00  INFO 29888 --- [trading-service] [main] c.t.t.TradingServiceApplication          : Started TradingServiceApplication in 1.056 seconds (process running for 1.255)
+2026-08-22T06:46:33.386-04:00  INFO 29888 --- [trading-service] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-22T06:46:33.387-04:00  INFO 29888 --- [trading-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-22T06:46:33.387-04:00  INFO 29888 --- [trading-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
