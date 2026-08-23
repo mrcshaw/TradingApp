@@ -7,6 +7,7 @@ import com.trading.analysis_service.service.MarketDataService;
 import com.trading.analysis_service.dto.HistoricalMarketDataPoint;
 import com.trading.analysis_service.dto.BacktestResult;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/analysis")
+@CrossOrigin(origins = "*") // Allow requests from our React Frontend
 public class StrategyController {
 
     private final ChatClient chatClient;
