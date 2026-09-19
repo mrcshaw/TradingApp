@@ -10,7 +10,7 @@ The system consists of the following core services:
 
 * **API Gateway**: A Spring Cloud Gateway acting as the central entry point, handling routing, rate limiting, and security.
 * **Account Service**: Manages user profiles, platform subscriptions, and saved strategy libraries.
-* **Analysis Service**: Integrates Gemma 5 to translate natural language into Pine Script v5 and Python rules, and fetches historical market data.
+* **Analysis Service**: Integrates Gemma 5 to translate natural language into Pine Script v5 and Python rules, and fetches historical market data. It is capable of taking existing Pine Script as input and refactoring/translating it into the Python vectorbt logic for local backtesting.
 * **Backtest Engine (Python)**: A high-performance microservice running `vectorbt` that accepts historical data and dynamic trading rules to evaluate historical profitability.
 
 ---
