@@ -1,0 +1,4 @@
+com\trading\account_service\repository\UserAccountRepository.class
+com\trading\account_service\AccountServiceApplication.class
+com\trading\account_service\controller\AccountController.class
+com\trading\account_service\entity\UserAccount.class
